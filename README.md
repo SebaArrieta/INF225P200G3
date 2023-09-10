@@ -19,9 +19,7 @@ Puede acceder a la Wiki mediante el siguiente [enlace](https://gitlab.inf.utfsm.
 
 > Reemplazar con los enlaces correspondientes
 
-* [Video presentación cliente](https://www.youtube.com)
-* [Video presentación avance 1](https://www.youtube.com/)
-* Etc ...
+* [Video presentación avance 1]([https://www.youtube.com/](https://youtu.be/CnrHKVUSTLQ))
 
 ## Aspectos técnicos relevantes
 
