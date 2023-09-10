@@ -1,13 +1,13 @@
 > Notar que **X** corresponde al número del grupo asignado.
 
-# Grupo x
+# Grupo 12
 
-Este es el repositorio del *Grupo X*, cuyos integrantes son:
+Este es el repositorio del *Grupo 12*, cuyos integrantes son:
 
-* Integrante 1 - Rol
-* Integrante 2 - Rol
-* Integrante 3 - Rol
-* **Tutor**: Nombre Tutor
+* Felipe Marchant Vargas - 202173643-3
+* Angelo Russu Cisternas - 202173509-7
+* Sebastián Arrieta Moron - 202173511-9
+* **Tutor**: Ignacio Muñoz
 
 ## Wiki
 
