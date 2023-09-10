@@ -19,7 +19,7 @@ Puede acceder a la Wiki mediante el siguiente [enlace](https://gitlab.inf.utfsm.
 
 > Reemplazar con los enlaces correspondientes
 
-* [Video presentación avance 1]((https://youtu.be/CnrHKVUSTLQ))
+* [Video presentación avance 1](https://youtu.be/CnrHKVUSTLQ)
 
 ## Aspectos técnicos relevantes
 
