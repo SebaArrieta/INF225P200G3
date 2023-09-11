@@ -11,7 +11,7 @@ Este es el repositorio del *Grupo 12*, cuyos integrantes son:
 
 > Obtener enlace desde el home de la wiki del repo.
 
-Puede acceder a la Wiki mediante el siguiente [enlace](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12)
+Puede acceder a la Wiki mediante el siguiente [enlace](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/home)
 
 ## Videos
 
