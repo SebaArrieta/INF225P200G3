@@ -9,7 +9,14 @@ Este es el repositorio del *Grupo 12*, cuyos integrantes son:
 
 ## Wiki
 
-Puede acceder a la Wiki mediante el siguiente [enlace](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/home)
+Puede acceder a la Wiki mediante el siguiente [enlace](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/home) 
+Wiki: 
+- [Identificación de los miembros del equipo.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Identificaci%C3%B3n-de-los-miembros-del-equipo)
+- [Objetivos y criterios de éxito del proyecto.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Objetivos-y-criterios-de-%C3%A9xito-del-proyecto)
+- [Actores relevantes.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Actores-Relevantes)
+- [Diagrama de contexto.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Diagrama-de-contexto)
+- [Modelo de dominio.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Modelo-de-dominio)
+- [Evidencias visuales proyecto.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Evidencias-visuales-proyecto)
 
 ## Videos
 
