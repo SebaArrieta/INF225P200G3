@@ -17,6 +17,7 @@ Wiki:
 - [Actores relevantes.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Actores-Relevantes)
 - [Diagrama de contexto.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Diagrama-de-contexto)
 - [Modelo de dominio.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Modelo-de-dominio)
+- [Diagrama de secuencia.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Diagrama-de-secuencia)
 - [Evidencias visuales proyecto.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Evidencias-visuales-proyecto)
 
 ## Videos
