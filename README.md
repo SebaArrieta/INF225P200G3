@@ -23,6 +23,7 @@ Wiki:
 ## Videos
 
 * [Video presentación avance 1](https://youtu.be/CnrHKVUSTLQ)
+* [Video de implemetación del proyecto](https://youtu.be/pNo8Co4I7ug)
 
 ## Aspectos técnicos relevantes
 
