@@ -6,6 +6,7 @@ function RegistrarHoras() {
   const [apellido, setApellido] = useState("");
   const [rut, setRut] = useState("");
   const [fechaHora, setFechaHora] = useState("");
+  const [fecha, setFecha] = useState("");
   const [tipoExamen, setTipoExamen] = useState("");
   const [nombreMedico, setNombreMedico] = useState("");
   const [motivoExamen, setMotivoExamen] = useState("");
@@ -71,10 +72,10 @@ function RegistrarHoras() {
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
               required
-            /> 
-            </div>
+            />
           </div>
-          <div className="form-group">
+        </div>
+        <div className="form-group">
           <label>Apellido:</label>
           <div className="input-container">
             <input
@@ -115,7 +116,19 @@ function RegistrarHoras() {
           </select>
         </div>
         <div className="form-group">
-          <label>Fecha y Hora:</label>
+          <label>Fecha:</label>
+          <div className="input-container">
+            <input
+              type="date"
+              className="form-control"
+              value={fecha}
+              onChange={(e) => setFecha(e.target.value)}
+              required
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <label>Hora:</label>
           <select
             className="form-control"
             value={fechaHora}
