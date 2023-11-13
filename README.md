@@ -25,7 +25,14 @@ Wiki:
 * [Video presentación avance 1](https://youtu.be/CnrHKVUSTLQ)
 * [Video de implemetación del proyecto](https://youtu.be/pNo8Co4I7ug)
 
-## Aspectos técnicos relevantes
+## Aspectos técnicos relevantes 
+
+### Avances entrega 5 
+Modificación de la vista para reservar hora. Se elige primero el tipo de exámen. A partir de esto se muetran los diferentes horarios disponibles. Estos horarios varian dependiendo cada tipo de exámen. Se adjuntan una imagen para radiografia(duración  de 30 minutos) y otra para resonancia magnética(duración de 1,5 horas). 
+![image](https://github.com/Nachops/INF236P201G12/assets/112965241/28762470-0dfc-4b70-be28-f99d64e03acf)  
+![image](https://github.com/Nachops/INF236P201G12/assets/112965241/5c1b1513-3301-422e-8366-d929aa685f32)
+Se agregó una nueva vista que corresponde a la busqueda de una hora ya registrada según el id de la hora y el rut del paciente. 
+![image](https://github.com/Nachops/INF236P201G12/assets/112965241/6e6b3c8b-9381-44b8-8d59-49b08044f438)
 
 ### Instrucciones de uso del prototipo implementado en la entrega 4
 ![image](https://github.com/Nachops/INF236P201G12/assets/102710333/2a82e2a5-ab9c-48fa-afd1-a3958dc8b5d9)
