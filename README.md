@@ -19,13 +19,15 @@ Wiki:
 - [Modelo de dominio.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Modelo-de-dominio)
 - [Diagrama de secuencia.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Diagrama-de-secuencia)
 - [Evidencias visuales proyecto.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Evidencias-visuales-proyecto)
+- [Evaluación final del proyecto.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Evaluaci%C3%B3n-final-proyecto)
 
 ## Videos
 
 * [Video presentación avance 1](https://youtu.be/CnrHKVUSTLQ)
 * [Video de implemetación del proyecto](https://youtu.be/pNo8Co4I7ug)
 
-## Aspectos técnicos relevantes 
+
+## Aspectos técnicos relevantes  
 
 ### Avances entrega 5 
 Modificación de la vista para reservar hora. Se elige primero el tipo de exámen. A partir de esto se muetran los diferentes horarios disponibles. Estos horarios varian dependiendo cada tipo de exámen. Se adjuntan una imagen para radiografia(duración  de 30 minutos) y otra para resonancia magnética(duración de 1,5 horas). 
