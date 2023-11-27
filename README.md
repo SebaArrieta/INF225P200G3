@@ -9,7 +9,7 @@ Este es el repositorio del *Grupo 12*, cuyos integrantes son:
 
 ## Wiki
 
-Puede acceder a la Wiki (en github) mediante el siguiente [enlace]([https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/home](https://github.com/Nachops/INF236P201G12/wiki)) 
+Puede acceder a la Wiki (en github) mediante el siguiente [enlace](https://github.com/Nachops/INF236P201G12/wiki) 
  
 Wiki en gitlab: 
 - [Identificación de los miembros del equipo.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Identificaci%C3%B3n-de-los-miembros-del-equipo)
