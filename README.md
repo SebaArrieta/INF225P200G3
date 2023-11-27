@@ -25,6 +25,7 @@ Wiki en gitlab:
 
 * [Video presentación avance 1](https://youtu.be/CnrHKVUSTLQ)
 * [Video de implemetación del proyecto](https://youtu.be/pNo8Co4I7ug)
+* [Video presentación de la entrega 6 y 7](https://www.youtube.com/watch?v=mPdGx_NsWPk)
 
 
 
