@@ -1,14 +1,18 @@
 import React, { useState } from "react";
+import axios from "axios"; // Importa axios
 import "../Styles/VerHora.css";
 
 // Componente para mostrar la información de cada hora registrada
 const HoraRegistrada = ({ hora }) => {
+  let horaformat = new Date(hora.fechaHora);
   return (
     <div>
-      <p>ID: {hora.id}</p>
-      <p>ID: {hora.rut}</p>
-      <p>Fecha: {hora.fecha}</p>
-      <p>Hora: {hora.hora}</p>
+      <p>ID: {hora._id}</p>
+      <p>Rut: {hora.rut}</p> 
+      <p>Nombre: {hora.nombre}</p> 
+      <p>Apellido: {hora.apellido}</p> 
+      <p>Fecha y Hora: {horaformat.toLocaleString()}</p>
+      <p>Médico: {hora.nombreMedico}</p>
       {/* Agrega más detalles según sea necesario */}
     </div>
   );
@@ -21,23 +25,27 @@ const VerHora = ({ horasRegistradas }) => {
   const [horaEncontrada, setHoraEncontrada] = useState(null);
   const [mostrarMensaje, setMostrarMensaje] = useState(false);
 
-  const buscarHora = () => {
+  const buscarHora = async () => { // Define la función como async para usar await
+
     if (idIngresado.trim() === "" && rutIngresado === "") {
       // Si no se ha ingresado ningún ID, no hacer nada
       return;
     }
 
-    // Buscar la hora en el arreglo de horas registradas
-    const horaEncontrada = horasRegistradas.find(
-      (hora) => hora.id === idIngresado || hora.rut === rutIngresado
-    );
+    try {
+      // Realiza la petición GET al backend con la ID ingresada
+      const response = await axios.get(`http://localhost:5000/record/getHora/`,{
+        params: {
+          id: idIngresado
+        }});
 
-    if (horaEncontrada) {
-      setHoraEncontrada(horaEncontrada);
+      // Actualiza el estado con la hora encontrada
+      setHoraEncontrada(response.data);
       setMostrarMensaje(false); // Ocultar el mensaje si se encuentra la hora
-    } else {
+    } catch (error) {
+      console.error('Error al buscar la hora:', error);
       setHoraEncontrada(null);
-      setMostrarMensaje(true); // Mostrar el mensaje si no se encuentra la hora
+      setMostrarMensaje(true); // Muestra el mensaje si ocurre un error o no se encuentra la hora
     }
   };
 
