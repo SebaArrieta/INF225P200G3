@@ -1,16 +1,18 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import "../Styles/RegistroHoras.css";
 
 function RegistrarHoras() {
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [rut, setRut] = useState("");
-  const [fechaHora, setFechaHora] = useState("");
+  const [Hora, setFechaHora] = useState("");
   const [fecha, setFecha] = useState("");
   const [tipoExamen, setTipoExamen] = useState("");
   const [nombreMedico, setNombreMedico] = useState("");
-  const [motivoExamen, setMotivoExamen] = useState("");
+  const [observacionExamen, setobservacionExamen] = useState("");
   const [horasDisponibles, setHorasDisponibles] = useState([]);
+  const [mensaje, setmensaje] = useState("");
 
   const examenOptions = [
     { tipo: "Radiografía", duracion: 30 },
@@ -19,44 +21,69 @@ function RegistrarHoras() {
     { tipo: "Resonancia Magnética", duracion: 90 },
   ];
 
-  const getHorasDisponibles = (duracion) => {
-    const horas = [];
-    let hora = new Date();
-    hora.setHours(8, 0, 0, 0); // Inicia a las 8:00hr
-
-    while (hora.getHours() < 12) {
-      horas.push({
-        value: hora.toISOString(),
-        label: hora.toLocaleTimeString(),
-      });
-      hora.setMinutes(hora.getMinutes() + duracion);
-    }
-
-    return horas;
-  };
-
-  const handleTipoExamenChange = (e) => {
-    const selectedTipoExamen = e.target.value;
-    setTipoExamen(selectedTipoExamen);
-
-    const duracionExamen = examenOptions.find(
-      (examen) => examen.tipo === selectedTipoExamen
+  const getHorasDisponibles = async (fecha) => {
+    const duracion = examenOptions.find(
+      (examen) => examen.tipo === tipoExamen
     ).duracion;
-    const horasDisponibles = getHorasDisponibles(duracionExamen);
-    setHorasDisponibles(horasDisponibles);
+
+    const horas = [];
+
+    let hora = new Date(fecha);
+    //hora.setHours(8, 0, 0, 0); // Inicia a las 8:00hr
+
+    try {
+      const response = await axios.get('http://localhost:5000/record/getDate/',{
+        params: {
+          date: hora.toISOString(),
+          tipo: tipoExamen
+        }});
+
+      let horasRegistradas = [];
+
+      response.data.map((res) =>{
+        let date = new Date(res.fechaHora);
+        horasRegistradas.push(date.toISOString())
+      });
+
+      while (hora.getHours() < 12) {
+        if(!horasRegistradas.includes(hora.toISOString())){
+          horas.push({
+            value: hora.toISOString(),
+            label: hora.toLocaleTimeString(),
+          });
+        }
+        hora.setMinutes(hora.getMinutes() + duracion);
+      }
+
+      setHorasDisponibles(horas);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const handleSubmit = (e) => {
+  const  handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Datos enviados:", {
-      nombre,
-      apellido,
-      rut,
-      fechaHora,
-      tipoExamen,
-      nombreMedico,
-      motivoExamen,
-    });
+    let postData = {
+      nombre: nombre,
+      apellido: apellido,
+      rut: rut,
+      Hora: Hora,
+      tipoExamen: tipoExamen,
+      nombreMedico: nombreMedico,
+      observacionExamen: observacionExamen
+    };
+    try {
+      const response = await axios.post('http://localhost:5000/record/add', postData);
+      console.log(response);
+      setmensaje(response.message);
+      setFecha("");
+      setFechaHora("");
+      setHorasDisponibles([]);
+
+    } catch (error) {
+      console.log(error);
+    }
+    
   };
 
   return (
@@ -105,7 +132,11 @@ function RegistrarHoras() {
           <select
             className="form-control"
             value={tipoExamen}
-            onChange={handleTipoExamenChange}
+            onChange={(e) => {
+                setTipoExamen(e.target.value)
+                setFecha("")
+              }
+            }
             required>
             <option value="">Selecciona un tipo de examen</option>
             {examenOptions.map((examen, index) => (
@@ -119,10 +150,15 @@ function RegistrarHoras() {
           <label>Fecha:</label>
           <div className="input-container">
             <input
+              disabled={!tipoExamen}
               type="date"
               className="form-control"
               value={fecha}
-              onChange={(e) => setFecha(e.target.value)}
+              onChange={(e) => {
+                  setFecha(e.target.value);
+                  getHorasDisponibles(e.target.value+"T08:00:00.000")
+                }
+              }
               required
             />
           </div>
@@ -130,8 +166,9 @@ function RegistrarHoras() {
         <div className="form-group">
           <label>Hora:</label>
           <select
+            disabled={!fecha}
             className="form-control"
-            value={fechaHora}
+            value={Hora}
             onChange={(e) => setFechaHora(e.target.value)}
             required>
             <option value="">Selecciona una hora</option>
@@ -155,11 +192,11 @@ function RegistrarHoras() {
           </div>
         </div>
         <div className="form-group">
-          <label>Motivo del Examen:</label>
+          <label>Observación del Examen:</label>
           <textarea
             className="form-control fixed-textarea"
-            value={motivoExamen}
-            onChange={(e) => setMotivoExamen(e.target.value)}
+            value={observacionExamen}
+            onChange={(e) => setobservacionExamen(e.target.value)}
             required
           />
         </div>
@@ -169,8 +206,12 @@ function RegistrarHoras() {
           Registrar Hora
         </button>
       </form>
+      <p>
+        {mensaje}
+      </p>
     </div>
   );
 }
+
 
 export default RegistrarHoras;
