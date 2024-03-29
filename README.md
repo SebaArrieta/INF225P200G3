@@ -3,7 +3,7 @@
 Este es el repositorio del *Grupo 03*, cuyos integrantes son:
 
 * Sebastián Arrieta Moron - 202173511-9
-* Lucas Montagna - 
+* Lucas Montagna - 202073540-9
 * Carolina Muñoz - 
 * Byron Prado - 
 * **Tutor**: José Southerland
