@@ -1,9 +1,14 @@
-# Grupo 12
+# Grupo 03
 
 Este es el repositorio del *Grupo 03*, cuyos integrantes son:
 
 * Sebastián Arrieta Moron - 202173511-9
-* **Tutor**: Ignacio Muñoz
+* Lucas Montagna - 
+* Carolina Muñoz - 
+* Byron Prado - 
+* **Tutor**: José Southerland
+
+* El proyecto a desarrollar corresponde al realizado en el paralelo 201 de INF236 durante el semestre 2023-2
 
 ## Wiki
 
