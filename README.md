@@ -5,7 +5,7 @@ Este es el repositorio del *Grupo 03*, cuyos integrantes son:
 * Sebastián Arrieta Moron - 202173511-9
 * Lucas Montagna - 202073540-9
 * Carolina Muñoz - 
-* Byron Prado - 
+* Byron Prado - 201730012-4
 * **Tutor**: José Southerland
 
 * El proyecto a desarrollar corresponde al realizado en el paralelo 201 de INF236 durante el semestre 2023-2
