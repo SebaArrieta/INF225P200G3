@@ -13,6 +13,7 @@ Este es el repositorio del *Grupo 03*, cuyos integrantes son:
 ## Wiki
 
 Para acceder a la Wiki de este proyecto mediante el siguiente [Enlace](https://github.com/SebaArrieta/INF225P200G3/wiki)
+
 Puede acceder a la Wiki (en github) mediante el siguiente [enlace](https://github.com/Nachops//wiki) 
  
 Wiki en gitlab: 
