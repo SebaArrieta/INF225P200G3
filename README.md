@@ -6,7 +6,7 @@ Este es el repositorio del *Grupo 03*, cuyos integrantes son:
 * Lucas Montagna - 202073540-9
 * Carolina Muñoz - 
 * Byron Prado - 201730012-4
-* **Tutor**: José Southerland
+* **Tutor**: Sebastián Cifuentes
 
 * El proyecto a desarrollar corresponde al realizado en el paralelo 201 de INF236 durante el semestre 2023-2
 
