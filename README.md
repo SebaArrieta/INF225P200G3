@@ -14,7 +14,7 @@ Este es el repositorio del *Grupo 03*, cuyos integrantes son:
 
 Para acceder a la Wiki de este proyecto, mediante el siguiente [Enlace](https://github.com/SebaArrieta/INF225P200G3/wiki)
 
-Puede acceder a la Wiki del proyecto del semestre pasado, mediante el siguiente [enlace](https://github.com/Nachops//wiki) 
+Puede acceder a la Wiki del proyecto del semestre pasado, mediante el siguiente [enlace](https://github.com/Nachops/INF236P201G12/wiki) 
  
 Wiki en gitlab: 
 - [Identificación de los miembros del equipo.](https://gitlab.inf.utfsm.cl/felipe.marchant/proyecto-inf236-grupo-12/-/wikis/Identificaci%C3%B3n-de-los-miembros-del-equipo)
