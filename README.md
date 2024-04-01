@@ -8,7 +8,7 @@ Este es el repositorio del *Grupo 03*, cuyos integrantes son:
 * Byron Prado - 201730012-4
 * **Tutor**: Sebastián Cifuentes
 
-* El proyecto a desarrollar corresponde al realizado en el paralelo 201 de INF236 durante el semestre 2023-2
+El proyecto a desarrollar corresponde al realizado en el paralelo 201 de INF236 durante el semestre 2023-2 el cual se enfoca en la creación de un software para agendar horas médicas y llevar un registro de las mismas.
 
 ## Wiki
 
