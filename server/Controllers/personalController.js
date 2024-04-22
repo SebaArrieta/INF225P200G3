@@ -22,8 +22,12 @@ const getHoras = async (tipo, init, end) => {
     tipoExamen: tipo
   };
 
-  const result = await horas.countDocuments(query);
-  return result;
+  try {
+    const result = await horas.countDocuments(query);
+    return result;
+  } catch (error) {
+    throw error
+  }
 }
 
 exports.generarEstadisticas = async (req, res) => {
@@ -37,17 +41,30 @@ exports.generarEstadisticas = async (req, res) => {
           end = new Date(req.query.rango);
 
           end.setHours(23, 59, 59);
-          console.log(init, end)
           break;
       case "Semana":
+          init = new Date(req.query.rango);
+          end = new Date();
+
+          end.setDate(init.getDate() + 6);
+          end.setHours(23, 59, 59);
           break;
       case "Mes":
-          
+          let month = req.query.rango.split("-")
+          init = new Date(month[0], parseInt(month[1]) - 1, 1);
+          end = new Date(month[0], parseInt(month[1]), 1);
+
+          end.setDate(init.getDate() - 1);
+          end.setHours(23, 59, 59);
           break;
       case "Año":
-          
+          let year = req.query.rango
+          init = new Date(year, 0, 1);
+          end = new Date(parseInt(year)+1, 0, 1);
+
+          end.setDate(end.getDate() - 1);
+          end.setHours(23, 59, 59);
           break;
-  
       default:
           break;
   }
