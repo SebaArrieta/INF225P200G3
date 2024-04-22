@@ -50,7 +50,7 @@ const VerHora = ({ horasRegistradas }) => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Buscar Hora Registrada</h2>
       <label>
         Ingrese el ID de su hora:
