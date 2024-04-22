@@ -15,10 +15,10 @@ function RegistrarHoras() {
   const [mensaje, setmensaje] = useState("");
 
   const examenOptions = [
-    { tipo: "Radiografía", duracion: 30 },
-    { tipo: "Escáner", duracion: 60 },
-    { tipo: "Ecografía", duracion: 30 },
-    { tipo: "Resonancia Magnética", duracion: 90 },
+    { tipo: "Radiografía", duracion: 15 },
+    { tipo: "Resonancia Magnética", duracion: 60 },
+    { tipo: "Ecografías", duracion: 20 },
+    { tipo: "Tomografías (TAC)", duracion: 40 },
   ];
 
   const getHorasDisponibles = async (fecha) => {
@@ -29,7 +29,7 @@ function RegistrarHoras() {
     const horas = [];
 
     let hora = new Date(fecha);
-    //hora.setHours(8, 0, 0, 0); // Inicia a las 8:00hr
+    hora.setHours(8, 30, 0, 0); // Inicia a las 8:30hr
 
     try {
       const response = await axios.get('http://localhost:5000/record/getDate/',{
@@ -44,8 +44,9 @@ function RegistrarHoras() {
         let date = new Date(res.fechaHora);
         horasRegistradas.push(date.toISOString())
       });
-
-      while (hora.getHours() < 12) {
+      
+      let limit = 13
+      while (hora.getHours() < limit) {
         if(!horasRegistradas.includes(hora.toISOString())){
           horas.push({
             value: hora.toISOString(),
@@ -53,6 +54,10 @@ function RegistrarHoras() {
           });
         }
         hora.setMinutes(hora.getMinutes() + duracion);
+        if(hora.getHours() === 13){
+          hora.setHours(14, 15, 0, 0);
+          limit = 17;
+        }
       }
 
       setHorasDisponibles(horas);
