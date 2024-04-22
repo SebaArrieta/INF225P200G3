@@ -16,4 +16,6 @@ router.post("/record/add", horaController.añadirHora);
 
 router.get("/record/getHora/", horaController.buscarHora);
 
+router.get("/record/getStats/", personalController.generarEstadisticas)
+
 module.exports = router;
