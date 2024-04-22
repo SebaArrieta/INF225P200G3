@@ -13,24 +13,25 @@ function Estadisticas(){
         "Resonancia Magnética": 0,
         "Ecografías": 0,
         "Tomografías (TAC)": 0
-    })
+    });
 
     const handleSubmit = async (tipo) =>{
-        var rango = "";
+        var init = "";
         switch (tipo) {
             case "Dia":
-                rango = new Date(Dia+"T04:00:00.000")
+                init = new Date(Dia+"T04:00:00.000");
                 break;
             case "Semana":
-                rango = Semana
+                let weekArr = Semana.split("-W");
+                let dia = 1 + (parseInt(weekArr[1])-1) * 7;
+                init = new Date(weekArr[0], 0, dia);
                 break;
             case "Mes":
-                rango = Mes
+                init = Mes;
                 break;
             case "Año":
-                rango = Año
+                init = Año;
                 break;
-        
             default:
                 break;
         }
@@ -39,17 +40,17 @@ function Estadisticas(){
             const response = await axios.get(`http://localhost:5000/record/getStats/`,{
             params: {
                 tipo: tipo,
-                rango: rango
+                rango: init
             }});
-      
+        
             setStats(response.data)
             setmostrarStats(true)
             console.log("Respuesta del servidor:", stats);
             // Puedes realizar acciones adicionales después de enviar los datos
-            } catch (error) {
-                console.error("Error al enviar los datos:", error);
-                // Manejar el error, mostrar un mensaje al usuario, etc.
-            }
+        } catch (error) {
+            console.error("Error al enviar los datos:", error);
+            // Manejar el error, mostrar un mensaje al usuario, etc.
+        }
     }
 
     return(
@@ -69,7 +70,7 @@ function Estadisticas(){
                             }
                             />
                             <div>
-                                <button onClick = {() => handleSubmit("Dia")} className="btn btn-primary">Ver Estadisticas</button>
+                                <button onClick = {() => Dia != "" ? handleSubmit("Dia") : setmostrarStats(false)} className="btn btn-primary">Ver Estadisticas</button>
                             </div>
                         </div>
                     </div>
@@ -85,7 +86,7 @@ function Estadisticas(){
                             }
                             />
                             <div>
-                                <button onClick = {() => handleSubmit("Semana")} className="btn btn-primary">Ver Estadisticas</button>
+                                <button onClick = {() => Semana != "" ? handleSubmit("Semana") : setmostrarStats(false)} className="btn btn-primary">Ver Estadisticas</button>
                             </div>
                         </div>
                     </div>
@@ -102,7 +103,7 @@ function Estadisticas(){
                             }
                             />
                             <div>
-                                <button onClick = {() => handleSubmit("Mes")} className="btn btn-primary">Ver Estadisticas</button>
+                                <button onClick = {() => Mes != "" ? handleSubmit("Mes") : setmostrarStats(false)} className="btn btn-primary">Ver Estadisticas</button>
                             </div>
                         </div>
                     </div>
@@ -121,7 +122,7 @@ function Estadisticas(){
                                 }
                             />
                             <div>
-                                <button onClick = {() => handleSubmit("Año")} className="btn btn-primary">Ver Estadisticas</button>
+                                <button onClick = {() => Año != "" ? handleSubmit("Año") : setmostrarStats(false)} className="btn btn-primary">Ver Estadisticas</button>
                             </div>
                         </div>
                     </div>
@@ -130,7 +131,7 @@ function Estadisticas(){
             
             {mostrarStats ? (
                 <div className={styles.container}>
-                    <h3>Estadísticas del dia/mes/semana/año</h3>
+                    <h3>Estadísticas:</h3>
 
                     <p>cantidad de atenciones: {parseInt(stats["Radiografia"]) + parseInt(stats["Ecografías"])+ parseInt(stats["Tomografías (TAC)"]) + parseInt(stats["Resonancia Magnética"])}</p>
                     <p>Radiografias: {stats["Radiografia"]}</p>
