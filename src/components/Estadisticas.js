@@ -142,10 +142,10 @@ function Estadisticas(){
                     <p>Resonancia Magnética: {stats["Resonancia Magnética"]}</p><br/>
 
                     <h4>Porcentajes</h4>
-                    <p>Radiografias: {parseInt(stats["Radiografia"])*(100/total)}%</p>
-                    <p>Ecografias: {parseInt(stats["Ecografías"])*(100/total)}%</p>
-                    <p>Tomografias(TAC): {parseInt(stats["Tomografías (TAC)"])*(100/total)}%</p>
-                    <p>Resonancia Magnética: {parseInt(stats["Resonancia Magnética"])*(100/total)}%</p><br/>
+                    <p>Radiografias: {(parseInt(stats["Radiografia"])*(100/total)).toFixed(2)}%</p>
+                    <p>Ecografias: {(parseInt(stats["Ecografías"])*(100/total)).toFixed(2)}%</p>
+                    <p>Tomografias(TAC): {(parseInt(stats["Tomografías (TAC)"])*(100/total)).toFixed(2)}%</p>
+                    <p>Resonancia Magnética: {(parseInt(stats["Resonancia Magnética"])*(100/total)).toFixed(2)}%</p><br/>
                 </div>
             ): null}
         </div>
