@@ -1,4 +1,4 @@
-const horas = require("../Models/horas")
+const horas = require("../models/horas")
 
 exports.buscarFecha = async(req, res) => {
     const targetDate = new Date(req.query.date);
