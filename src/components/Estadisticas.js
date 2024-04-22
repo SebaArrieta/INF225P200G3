@@ -14,6 +14,7 @@ function Estadisticas(){
         "Ecografías": 0,
         "Tomografías (TAC)": 0
     });
+    const [total, setTotal] = useState("")
 
     const handleSubmit = async (tipo) =>{
         var init = "";
@@ -45,6 +46,7 @@ function Estadisticas(){
         
             setStats(response.data)
             setmostrarStats(true)
+            setTotal(parseInt(response.data["Radiografia"]) + parseInt(response.data["Ecografías"])+ parseInt(response.data["Tomografías (TAC)"]) + parseInt(response.data["Resonancia Magnética"]))
             console.log("Respuesta del servidor:", stats);
             // Puedes realizar acciones adicionales después de enviar los datos
         } catch (error) {
@@ -133,11 +135,17 @@ function Estadisticas(){
                 <div className={styles.container}>
                     <h3>Estadísticas:</h3>
 
-                    <p>cantidad de atenciones: {parseInt(stats["Radiografia"]) + parseInt(stats["Ecografías"])+ parseInt(stats["Tomografías (TAC)"]) + parseInt(stats["Resonancia Magnética"])}</p>
+                    <h4>cantidad de atenciones: {total}</h4>
                     <p>Radiografias: {stats["Radiografia"]}</p>
                     <p>Ecografias: {stats["Ecografías"]}</p>
                     <p>Tomografias(TAC): {stats["Tomografías (TAC)"]}</p>
-                    <p>Resonancia Magnética: {stats["Resonancia Magnética"]}</p>
+                    <p>Resonancia Magnética: {stats["Resonancia Magnética"]}</p><br/>
+
+                    <h4>Porcentajes</h4>
+                    <p>Radiografias: {parseInt(stats["Radiografia"])*(100/total)}%</p>
+                    <p>Ecografias: {parseInt(stats["Ecografías"])*(100/total)}%</p>
+                    <p>Tomografias(TAC): {parseInt(stats["Tomografías (TAC)"])*(100/total)}%</p>
+                    <p>Resonancia Magnética: {parseInt(stats["Resonancia Magnética"])*(100/total)}%</p><br/>
                 </div>
             ): null}
         </div>
