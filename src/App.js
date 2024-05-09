@@ -8,6 +8,8 @@ import VerHora from "./components/VerHora";
 import RegistrarPaciente from "./components/RegistroPaciente";
 import RegistrarMedicos from "./components/RegistroMedicos";
 import Estadisticas from "./components/Estadisticas";
+import DispPersonal from "./components/DisponibilidadPersonal";
+
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
             <Route path = "/registerPaciente" element={<RegistrarPaciente />}/>
             <Route path = "/registerMedico" element={<RegistrarMedicos />}/>
             <Route path = "/Estadisticas" element={<Estadisticas />}/>
+            <Route path = "/DisponibilidadPersonal" element={<DispPersonal />}/>
           </Routes>
         </main>
       </div>

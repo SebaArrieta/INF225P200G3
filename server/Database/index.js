@@ -5,7 +5,7 @@ const MONGO_URL = "mongodb+srv://sebastianarrieta123:bdpass@proyectobd.4f2owgn.m
 const db = async () =>{
     try {
         const conn = await mongoose.connect(MONGO_URL);
-        console.log("coneccion completada");
+        console.log("conexion completada");
     } catch (error) {
         console.log(error)
     }
