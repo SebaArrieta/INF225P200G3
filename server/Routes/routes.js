@@ -18,4 +18,6 @@ router.get("/record/getHora/", horaController.buscarHora);
 
 router.get("/record/getStats/", personalController.generarEstadisticas)
 
+router.get("/record/getMed/", personalController.obtenerMedicos)
+
 module.exports = router;

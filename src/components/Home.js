@@ -8,7 +8,8 @@ function Home() {
       <Link to="/registerPaciente">Registrar paciente</Link><br/>
       <Link to="/registerMedico">Registrar medico</Link><br/>
       <Link to="/verHora">Buscar hora registrada</Link><br/>
-      <Link to="/Estadisticas">Generar Estadisticas</Link>
+      <Link to="/Estadisticas">Generar Estadisticas</Link><br/>
+      <Link to="/DisponibilidadPersonal">Disponibilidad Personal</Link>
     </html>
   );
 }

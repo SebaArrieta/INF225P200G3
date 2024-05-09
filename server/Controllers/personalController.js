@@ -81,3 +81,13 @@ exports.generarEstadisticas = async (req, res) => {
     throw error;
   }
 }
+
+exports.obtenerMedicos = async (res) => {
+  try {
+    const personal = await Personal.find({ cargo: { $in: ["Médico", "Enfermera"] } });
+
+    res.json(personal);
+  } catch (error) {
+    console.error('Error al obtener el personal:', error);
+  }
+};
