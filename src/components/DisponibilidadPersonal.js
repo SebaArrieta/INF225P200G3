@@ -16,7 +16,12 @@ const DispPersonal = () => {
   const [personalList, setPersonalList] = useState([]);
   const [filtro, setFiltro] = useState("");
   const [filtroSeleccionado, setFiltroSeleccionado] = useState(false);
-  const [nombreMedico, setNombreMedico] = useState(""); // Estado para almacenar el nombre del médico
+  
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [rut, setRut] = useState("");
+  const [fechaInicio, setFechaInicio] = useState("");
+  const [fechaTermino, setFechaTermino] = useState(""); 
 
   useEffect(() => {
     const fetchPersonal = async () => {
@@ -42,14 +47,32 @@ const DispPersonal = () => {
   };
 
   const handleFileChange = (e) => {
-    // Manejar la carga del archivo PDF aquí
+    // Manejar la carga del archivo PDF aquí aun no cargamos nada a bd
     const file = e.target.files[0];
     console.log("Archivo seleccionado:", file);
   };
 
-  const handleNombreMedicoChange = (e) => {
-    // Actualizar el estado del nombre del médico
-    setNombreMedico(e.target.value);
+  const handleLicenciaSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/registrar-licencia", 
+        {
+          rut,
+          nombre,
+          apellido,
+          fechaInicio,
+          fechaTermino,
+        }      
+      );
+
+      const data = response.data;
+      console.log("Respuesta del servidor:", data);
+      // Aquí puedes realizar alguna acción adicional después de que se haya registrado la licencia
+    } catch (error) {
+      console.error("Error al registrar la licencia:", error);
+      // Aquí puedes manejar el error de alguna manera
+    }
   };
 
   return (
@@ -57,28 +80,66 @@ const DispPersonal = () => {
       <div>
         <h2>Disponibilidad de Personal</h2>
         <h3>Cargar Licencia Médica</h3>
-        <form>
+        <form onSubmit={handleLicenciaSubmit}>
           <div className="form-group">
-            <label htmlFor="nombreMedico">Nombre del Médico:</label>
+            <label>RUT (sin guión ni puntos):</label>
+            <div className="input-container">
+              <input
+                type="text"
+                className="form-control"
+                value={rut}
+                onChange={(e) => setRut(e.target.value)}
+                pattern="^\d{1,8}-?[\dk]?$"
+                required
+              />
+            </div>
+          </div>
+          <div className="form-group">
+            <label htmlFor="nombreMedico">Nombre:</label>
             <input
               type="text"
               id="nombreMedico"
               className="form-control"
-              value={nombreMedico}
-              onChange={handleNombreMedicoChange}
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="apellidomed">Apellido:</label>
+            <input
+              type="text"
+              id="apellidomed"
+              className="form-control"
+              value={apellido}
+              onChange={(e) => setApellido(e.target.value)}
             />
           </div>
           <div className="form-group">
             <label htmlFor="fechaInicio">Fecha de Inicio:</label>
-            <input type="date" id="fechaInicio" className="form-control" />
+            <input
+            type="date"
+            id="fechaInicio"
+            className="form-control"
+            value={fechaInicio}
+            onChange={(e) => setFechaInicio(e.target.value)} />
           </div>
           <div className="form-group">
-            <label htmlFor="fechaFin">Fecha de Fin:</label>
-            <input type="date" id="fechaFin" className="form-control" />
+            <label htmlFor="fechaTermino">Fecha de Termino:</label>
+            <input 
+              type="date"
+              id="fechaFin"
+              className="form-control" 
+              value={fechaTermino}
+              onChange={(e) => setFechaTermino(e.target.value)} 
+            />
           </div>
           <div className="form-group">
             <label htmlFor="documento">Cargar Documento PDF:</label>
-            <input type="file" id="documento" className="form-control-file" onChange={handleFileChange} />
+            <input 
+              type="file"
+              id="documento"
+              className="form-control-file"
+              onChange={handleFileChange} />
           </div>
           <button type="submit" className="btn btn-primary">Cargar Licencia</button>
         </form>
@@ -96,6 +157,7 @@ const DispPersonal = () => {
             <option value="">Todos</option>
             <option value="Médico">Médico</option>
             <option value="Enfermera">Enfermera</option>
+            <option value="Secretaria">Secretaria</option>
           </select>
         </div>
         <button type="button" className="btn btn-primary" onClick={filtrarPersonal}>Filtrar</button>
