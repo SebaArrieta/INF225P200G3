@@ -82,10 +82,10 @@ exports.generarEstadisticas = async (req, res) => {
   }
 }
 
-exports.obtenerMedicos = async (res) => {
+//no tocar junciona
+exports.obtenerMedicos = async (req,res) => { 
   try {
-    const personal = await Personal.find({ cargo: { $in: ["Médico", "Enfermera"] } });
-
+    const personal = await Personal.find({ cargo: { $in: ["Médico", "Enfermera","Secretaria"] } });
     res.json(personal);
   } catch (error) {
     console.error('Error al obtener el personal:', error);
