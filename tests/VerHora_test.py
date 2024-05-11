@@ -8,7 +8,7 @@ class VerHoraTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.invalid_input = {
-            'id': ''
+            'id': ''    #El id debe tener un largo específico por lo que este se considera invalido
         }
 
         cls.search_existing_id = {
