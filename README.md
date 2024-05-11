@@ -22,6 +22,7 @@ El proyecto a desarrollar corresponde al realizado en el paralelo 201 de INF236 
 5. de igual forma es necesaria la instalación de un paquete en la carpeta server, para esto solo es necesario ejecutar el siguiente comando "npm install express"
 6. para ejecutar la aplicación primero se debe poner al servidor de node en funcionamiento ejecutando el comando "node app.js" en la carpeta "server"
 7. Finalmente para visualizar y probar la aplicacion se debe ejecutar "npm start" en la carpeta "aplicacion"
+8. Para que funcione la conexión con la base de datos es necesario configurar el link de la variable MONGO_URL en el archivo index.js de la carpeta database de server
 
    Estructura del directorio
    ![image](https://github.com/SebaArrieta/INF225P200G3/assets/102710333/e5d003b4-6ebf-4c4e-ace8-d08bedb7b325)
