@@ -3,6 +3,7 @@ import requests
 
 class VerEstadisticas(unittest.TestCase):
     invalid_input = None
+    search_by_year = None
     base_url = "http://localhost:5000/record/getStats/"
 
     @classmethod
