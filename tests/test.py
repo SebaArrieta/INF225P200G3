@@ -18,6 +18,7 @@ class VerHoraTest(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         del cls.invalid_input
+        del cls.search_existing_id
 
     def test_get_existing_id(self):
         res = requests.get(self.base_url, params=self.search_existing_id)
