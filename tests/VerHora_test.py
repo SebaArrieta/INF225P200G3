@@ -3,12 +3,13 @@ import requests
 
 class VerHoraTest(unittest.TestCase):
     invalid_input = None
+    search_existing_id = None
     base_url = "http://localhost:5000/record/getHora/"
 
     @classmethod
     def setUpClass(cls):
         cls.invalid_input = {
-            'id': ''    #El id debe tener un largo específico por lo que este se considera invalido
+            'id': ''     #El id debe tener un largo específico por lo que este se considera invalido
         }
 
         cls.search_existing_id = {
