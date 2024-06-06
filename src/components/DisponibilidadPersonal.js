@@ -22,6 +22,7 @@ const DispPersonal = () => {
   const [rut, setRut] = useState("");
   const [fechaInicio, setFechaInicio] = useState("");
   const [fechaTermino, setFechaTermino] = useState(""); 
+  const[file_lic,setFile] = useState(null);
 
   useEffect(() => {
     const fetchPersonal = async () => {
@@ -48,8 +49,9 @@ const DispPersonal = () => {
 
   const handleFileChange = (e) => {
     // Manejar la carga del archivo PDF aquí aun no cargamos nada a bd
-    const file = e.target.files[0];
-    console.log("Archivo seleccionado:", file);
+    const file_lic = e.target.files[0];
+    setFile(file_lic);
+    console.log("Archivo seleccionado:", file_lic);
   };
 
   const handleLicenciaSubmit = async (e) => {
@@ -63,6 +65,8 @@ const DispPersonal = () => {
           apellido,
           fechaInicio,
           fechaTermino,
+          file_lic
+          
         }      
       );
 
@@ -139,6 +143,7 @@ const DispPersonal = () => {
               type="file"
               id="documento"
               className="form-control-file"
+              accept=".pdf"
               onChange={handleFileChange} />
           </div>
           <button type="submit" className="btn btn-primary">Cargar Licencia</button>

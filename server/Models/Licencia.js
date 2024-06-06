@@ -5,6 +5,7 @@ let licenciaSchema = new mongoose.Schema({
     apellido: String,
     fechaInicio: Date,
     fechaTermino: Date,
+    file_lic: String,
 });
 const licencia = mongoose.model('licencia', licenciaSchema);
 
