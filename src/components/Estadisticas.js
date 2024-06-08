@@ -15,6 +15,10 @@ function Estadisticas(){
         "Tomografías (TAC)": 0
     });
     const [total, setTotal] = useState("")
+    const [isAuth, setIsAuth] = useState(false)
+    const[Nombre, setNombre] = useState("")
+    const[Pass, setPass] = useState("")
+    const[errorLogIn, setErrorLogIn] = useState(null)
 
     const handleSubmit = async (tipo) =>{
         var init = "";
@@ -55,9 +59,47 @@ function Estadisticas(){
         }
     }
 
+    const logIn = () => {
+        if(Nombre === "Usuario" && Pass === "1234"){
+            setIsAuth(true)
+        }else{
+            setErrorLogIn("Credenciales incorrectas")
+        }
+    }
+
     return(
         <div>
-            <div className={styles.container}>
+            {!isAuth ? (
+            <div>
+                <div className="container">
+                <h2>Ingresar credenciales</h2>
+                <label>
+                    Nombre:
+                    <input
+                    type="text"
+                    value={Nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                    />
+                </label>
+                <label>
+                    Contraseña:
+                    <input
+                    type="password"
+                    value={Pass}
+                    onChange={(e) => setPass(e.target.value)}
+                    />
+                </label>
+                <button onClick={logIn}>Ingresar</button>
+                </div>
+                {errorLogIn ? (
+                    <p className="no-encontrado">
+                        {errorLogIn}
+                    </p>
+                ): null}
+            </div>
+            ) : (
+            <div>
+                <div className={styles.container}>
                 <h2>Generar Estadísticas</h2>
                 <div className = {styles.form_container}>
                     <div className="form-group">
@@ -148,6 +190,8 @@ function Estadisticas(){
                     <p>Resonancia Magnética: {(parseInt(stats["Resonancia Magnética"])*(100/total)).toFixed(2)}%</p><br/>
                 </div>
             ): null}
+            </div>
+            )}
         </div>
         
     )
