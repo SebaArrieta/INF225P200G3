@@ -28,8 +28,10 @@ El proyecto a desarrollar corresponde al realizado en el paralelo 201 de INF236 
    ![image](https://github.com/SebaArrieta/INF225P200G3/assets/102710333/e5d003b4-6ebf-4c4e-ace8-d08bedb7b325)
 
 Credenciales para el ingreso de las secciones que lo requieren:
-Nombre: Usuario
-Contraseña: 1234
+
+*Nombre: Usuario
+
+*Contraseña: 1234
 
 ## Wiki
 
