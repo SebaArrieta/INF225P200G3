@@ -10,6 +10,8 @@ Este es el repositorio del *Grupo 03*, cuyos integrantes son:
 
 El proyecto a desarrollar corresponde al realizado en el paralelo 201 de INF236 durante el semestre 2023-2 el cual se enfoca en la creación de un software para agendar horas médicas y llevar un registro de las mismas.
 
+[Video Hito 4](https://youtu.be/msPvgUAZ4nk)
+
 ## Pasos para la ejecución del codigo
 
 1. Ejecutar el comando "npx create-react-app aplicacion" en el directorio donde se desea guardar el proyecto
