@@ -22,7 +22,11 @@ const DispPersonal = () => {
   const [rut, setRut] = useState("");
   const [fechaInicio, setFechaInicio] = useState("");
   const [fechaTermino, setFechaTermino] = useState(""); 
-  const[file_lic,setFile] = useState(null);
+
+  const [isAuth, setIsAuth] = useState(false);
+  const[NombrePersonal, setNombrePersonal] = useState("");
+  const[Pass, setPass] = useState("");
+  const[errorLogIn, setErrorLogIn] = useState(null);
 
   useEffect(() => {
     const fetchPersonal = async () => {
@@ -49,9 +53,8 @@ const DispPersonal = () => {
 
   const handleFileChange = (e) => {
     // Manejar la carga del archivo PDF aquí aun no cargamos nada a bd
-    const file_lic = e.target.files[0];
-    setFile(file_lic);
-    console.log("Archivo seleccionado:", file_lic);
+    const file = e.target.files[0];
+    console.log("Archivo seleccionado:", file);
   };
 
   const handleLicenciaSubmit = async (e) => {
@@ -65,8 +68,6 @@ const DispPersonal = () => {
           apellido,
           fechaInicio,
           fechaTermino,
-          file_lic
-          
         }      
       );
 
@@ -79,103 +80,142 @@ const DispPersonal = () => {
     }
   };
 
+  const logIn = () => {
+    if(NombrePersonal === "Usuario" && Pass === "1234"){
+        setIsAuth(true)
+    }else{
+        setErrorLogIn("Credenciales incorrectas")
+    }
+}
+
   return (
     <div className="container">
-      <div>
-        <h2>Disponibilidad de Personal</h2>
-        <h3>Cargar Licencia Médica</h3>
-        <form onSubmit={handleLicenciaSubmit}>
-          <div className="form-group">
-            <label>RUT (sin guión ni puntos):</label>
-            <div className="input-container">
-              <input
-                type="text"
-                className="form-control"
-                value={rut}
-                onChange={(e) => setRut(e.target.value)}
-                pattern="^\d{1,8}-?[\dk]?$"
-                required
-              />
+      {!isAuth ? (
+            <div>
+                <div className="container">
+                <h2>Ingresar credenciales</h2>
+                <label>
+                    Nombre:
+                    <input
+                    type="text"
+                    value={NombrePersonal}
+                    onChange={(e) => setNombrePersonal(e.target.value)}
+                    />
+                </label>
+                <label>
+                    Contraseña:
+                    <input
+                    type="password"
+                    value={Pass}
+                    onChange={(e) => setPass(e.target.value)}
+                    />
+                </label>
+                <button onClick={logIn}>Ingresar</button>
+                </div>
+                {errorLogIn ? (
+                    <p className="no-encontrado">
+                        {errorLogIn}
+                    </p>
+                ): null}
             </div>
-          </div>
-          <div className="form-group">
-            <label htmlFor="nombreMedico">Nombre:</label>
-            <input
-              type="text"
-              id="nombreMedico"
-              className="form-control"
-              value={nombre}
-              onChange={(e) => setNombre(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="apellidomed">Apellido:</label>
-            <input
-              type="text"
-              id="apellidomed"
-              className="form-control"
-              value={apellido}
-              onChange={(e) => setApellido(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="fechaInicio">Fecha de Inicio:</label>
-            <input
-            type="date"
-            id="fechaInicio"
-            className="form-control"
-            value={fechaInicio}
-            onChange={(e) => setFechaInicio(e.target.value)} />
-          </div>
-          <div className="form-group">
-            <label htmlFor="fechaTermino">Fecha de Termino:</label>
-            <input 
-              type="date"
-              id="fechaFin"
-              className="form-control" 
-              value={fechaTermino}
-              onChange={(e) => setFechaTermino(e.target.value)} 
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="documento">Cargar Documento PDF:</label>
-            <input 
-              type="file"
-              id="documento"
-              className="form-control-file"
-              accept=".pdf"
-              onChange={handleFileChange} />
-          </div>
-          <button type="submit" className="btn btn-primary">Cargar Licencia</button>
-        </form>
-      </div>
-      <h3>Personal disponible</h3>
-      <form>
-        <div className="form-group">
-          <label htmlFor="filtro">Filtrar por:</label>
-          <select
-            id="filtro"
-            className="form-control"
-            value={filtro}
-            onChange={(e) => setFiltro(e.target.value)}
-          >
-            <option value="">Todos</option>
-            <option value="Médico">Médico</option>
-            <option value="Enfermera">Enfermera</option>
-            <option value="Secretaria">Secretaria</option>
-          </select>
-        </div>
-        <button type="button" className="btn btn-primary" onClick={filtrarPersonal}>Filtrar</button>
-      </form>
-      {filtroSeleccionado ? (
-        personalList.length > 0 ? (
-          personalList.map((personal) => (
-            <PersonalItem key={personal._id} personal={personal} />
-          ))
-        ) : (
-          <p>No hay personal disponible para el filtro seleccionado.</p>
-        )
-      ) : null}
+            ) : (
+              <div>
+              <div>
+                <h2>Disponibilidad de Personal</h2>
+                <h3>Cargar Licencia Médica</h3>
+                <form onSubmit={handleLicenciaSubmit}>
+                  <div className="form-group">
+                    <label>RUT (sin guión ni puntos):</label>
+                    <div className="input-container">
+                      <input
+                        type="text"
+                        className="form-control"
+                        value={rut}
+                        onChange={(e) => setRut(e.target.value)}
+                        pattern="^\d{1,8}-?[\dk]?$"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="nombreMedico">Nombre:</label>
+                    <input
+                      type="text"
+                      id="nombreMedico"
+                      className="form-control"
+                      value={nombre}
+                      onChange={(e) => setNombre(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="apellidomed">Apellido:</label>
+                    <input
+                      type="text"
+                      id="apellidomed"
+                      className="form-control"
+                      value={apellido}
+                      onChange={(e) => setApellido(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="fechaInicio">Fecha de Inicio:</label>
+                    <input
+                    type="date"
+                    id="fechaInicio"
+                    className="form-control"
+                    value={fechaInicio}
+                    onChange={(e) => setFechaInicio(e.target.value)} />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="fechaTermino">Fecha de Termino:</label>
+                    <input 
+                      type="date"
+                      id="fechaFin"
+                      className="form-control" 
+                      value={fechaTermino}
+                      onChange={(e) => setFechaTermino(e.target.value)} 
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="documento">Cargar Documento PDF:</label>
+                    <input 
+                      type="file"
+                      id="documento"
+                      className="form-control-file"
+                      onChange={handleFileChange} />
+                  </div>
+                  <button type="submit" className="btn btn-primary">Cargar Licencia</button>
+                </form>
+              </div>
+              <h3>Personal disponible</h3>
+              <form>
+                <div className="form-group">
+                  <label htmlFor="filtro">Filtrar por:</label>
+                  <select
+                    id="filtro"
+                    className="form-control"
+                    value={filtro}
+                    onChange={(e) => setFiltro(e.target.value)}
+                  >
+                    <option value="">Todos</option>
+                    <option value="Médico">Médico</option>
+                    <option value="Enfermera">Enfermera</option>
+                    <option value="Secretaria">Secretaria</option>
+                  </select>
+                </div>
+                <button type="button" className="btn btn-primary" onClick={filtrarPersonal}>Filtrar</button>
+              </form>
+              {filtroSeleccionado ? (
+                personalList.length > 0 ? (
+                  personalList.map((personal) => (
+                    <PersonalItem key={personal._id} personal={personal} />
+                  ))
+                ) : (
+                  <p>No hay personal disponible para el filtro seleccionado.</p>
+                )
+              ) : null}
+              </div>
+            )}
     </div>
   );
 };
