@@ -21,7 +21,7 @@ function Estadisticas(){
     const[errorLogIn, setErrorLogIn] = useState(null)
 
     const handleSubmit = async (tipo) =>{
-        var init = "";
+        let init = "";
         switch (tipo) {
             case "Dia":
                 init = new Date(Dia+"T04:00:00.000");
@@ -103,10 +103,11 @@ function Estadisticas(){
                 <h2>Generar Estadísticas</h2>
                 <div className = {styles.form_container}>
                     <div className="form-group">
-                        <label>Dia:</label>
+                        <label htmlFor="dia">Dia:</label>
                         <div className="input-container">
                             <input
                             type="date"
+                            id = "dia"
                             className="form-control"
                             onChange={(e) => {
                                 setDia(e.target.value);
@@ -119,10 +120,11 @@ function Estadisticas(){
                         </div>
                     </div>
                     <div className="form-group">
-                        <label>Semana:</label>
+                        <label htmlFor="semana">Semana:</label>
                         <div className="input-container">
                             <input
                             type="week"
+                            id = "semana"
                             className="form-control"
                             onChange={(e) => {
                                 setSemana(e.target.value);
@@ -135,10 +137,11 @@ function Estadisticas(){
                         </div>
                     </div>
                     <div className="form-group">
-                        <label>Mes:</label>
+                        <label htmlFor="mes">Mes:</label>
                         <div className="input-container">
                             <input
                             type="month"
+                            id = "mes"
                             className="form-control"
                             min="1900-01" max="2024-12"
                             onChange={(e) => {
@@ -152,10 +155,11 @@ function Estadisticas(){
                         </div>
                     </div>
                     <div className="form-group">
-                        <label>Año:</label>
+                        <label htmlFor="año">Año:</label>
                         <div className="input-container">
                             <input 
                                 type="number" 
+                                id = "año"
                                 min="1900"
                                 max="2024" 
                                 step="1" 
