@@ -39,7 +39,6 @@ function RegistrarHoras() {
         }});
 
       let horasRegistradas = [];
-
       response.data.map((res) =>{
         let date = new Date(res.fechaHora);
         horasRegistradas.push(date.toISOString())
@@ -59,7 +58,6 @@ function RegistrarHoras() {
           limit = 17;
         }
       }
-
       setHorasDisponibles(horas);
     } catch (error) {
       console.log(error);
@@ -79,7 +77,6 @@ function RegistrarHoras() {
     };
     try {
       const response = await axios.post('http://localhost:5000/record/add', postData);
-      console.log(response);
       setmensaje(response.message);
       setFecha("");
       setFechaHora("");
@@ -96,10 +93,11 @@ function RegistrarHoras() {
       <h2>Registrar Hora para Examen Médico</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Nombre:</label>
+          <label htmlFor="nombre">Nombre:</label>
           <div className="input-container">
             <input
               type="text"
+              id = "nombre"
               className="form-control"
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
@@ -108,10 +106,11 @@ function RegistrarHoras() {
           </div>
         </div>
         <div className="form-group">
-          <label>Apellido:</label>
+          <label htmlFor="apellido">Apellido:</label>
           <div className="input-container">
             <input
               type="text"
+              id = "apellido"
               className="form-control"
               value={apellido}
               onChange={(e) => setApellido(e.target.value)}
@@ -120,10 +119,11 @@ function RegistrarHoras() {
           </div>
         </div>
         <div className="form-group">
-          <label>RUT (sin guión ni puntos):</label>
+          <label htmlFor="rut">RUT (sin guión ni puntos):</label>
           <div className="input-container">
             <input
               type="text"
+              id = "rut"
               className="form-control"
               value={rut}
               onChange={(e) => setRut(e.target.value)}
@@ -133,9 +133,10 @@ function RegistrarHoras() {
           </div>
         </div>
         <div className="form-group">
-          <label>Tipo de Examen:</label>
+          <label htmlFor="tipo">Tipo de Examen:</label>
           <select
             className="form-control"
+            id="tipo"
             value={tipoExamen}
             onChange={(e) => {
                 setTipoExamen(e.target.value)
@@ -145,18 +146,19 @@ function RegistrarHoras() {
             required>
             <option value="">Selecciona un tipo de examen</option>
             {examenOptions.map((examen, index) => (
-              <option key={index} value={examen.tipo}>
+              <option key={examen.tipo} value={examen.tipo}>
                 {examen.tipo}
               </option>
             ))}
           </select>
         </div>
         <div className="form-group">
-          <label>Fecha:</label>
+          <label htmlFor="fecha">Fecha:</label>
           <div className="input-container">
             <input
               disabled={!tipoExamen}
               type="date"
+              id = "fecha"
               className="form-control"
               value={fecha}
               onChange={(e) => {
@@ -169,26 +171,27 @@ function RegistrarHoras() {
           </div>
         </div>
         <div className="form-group">
-          <label>Hora:</label>
+          <label htmlFor="hora">Hora:</label>
           <select
             disabled={!fecha}
             className="form-control"
             value={Hora}
             onChange={(e) => setFechaHora(e.target.value)}
             required>
-            <option value="">Selecciona una hora</option>
+            <option id = "hora" value="">Selecciona una hora</option>
             {horasDisponibles.map((hora, index) => (
-              <option key={index} value={hora.value}>
+              <option key={hora.label} value={hora.value}>
                 {hora.label}
               </option>
             ))}
           </select>
         </div>
         <div className="form-group">
-          <label>Nombre del Médico:</label>
+          <label htmlFor="nombreMedico">Nombre del Médico:</label>
           <div className="input-container">
             <input
               type="text"
+              id = "nombreMedico"
               className="form-control"
               value={nombreMedico}
               onChange={(e) => setNombreMedico(e.target.value)}
@@ -197,9 +200,10 @@ function RegistrarHoras() {
           </div>
         </div>
         <div className="form-group">
-          <label>Observación del Examen:</label>
+          <label htmlFor="observacion">Observación del Examen:</label>
           <textarea
             className="form-control fixed-textarea"
+            id = "observacion"
             value={observacionExamen}
             onChange={(e) => setobservacionExamen(e.target.value)}
             required
