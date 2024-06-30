@@ -125,16 +125,17 @@ const DispPersonal = () => {
                 <h3>Cargar Licencia Médica</h3>
                 <form onSubmit={handleLicenciaSubmit}>
                   <div className="form-group">
-                    <label htmlFor="rutMedico">RUT (sin guión ni puntos):</label>
+                    <label>RUT (sin guión ni puntos):</label>
+                    <div className="input-container">
                       <input
                         type="text"
-                        id="rutMedico"
                         className="form-control"
                         value={rut}
                         onChange={(e) => setRut(e.target.value)}
                         pattern="^\d{1,8}-?[\dk]?$"
                         required
                       />
+                    </div>
                   </div>
                   <div className="form-group">
                     <label htmlFor="nombreMedico">Nombre:</label>

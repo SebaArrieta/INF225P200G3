@@ -69,11 +69,10 @@ function RegistrarMedicos() {
       <h2>Registrar Personal</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="nombre">Nombre:</label>
+          <label>Nombre:</label>
           <div className="input-container">
             <input
               type="text"
-              id = "nombre"
               className="form-control"
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
@@ -82,11 +81,10 @@ function RegistrarMedicos() {
           </div>
         </div>
         <div className="form-group">
-          <label htmlFor="apellido">Apellido:</label>
+          <label>Apellido:</label>
           <div className="input-container">
             <input
               type="text"
-              id = "apellido"
               className="form-control"
               value={apellido}
               onChange={(e) => setApellido(e.target.value)}
@@ -95,11 +93,10 @@ function RegistrarMedicos() {
           </div>
         </div>
         <div className="form-group">
-          <label htmlFor="rut">RUT (sin guión ni puntos):</label>
+          <label>RUT (sin guión ni puntos):</label>
           <div className="input-container">
             <input
               type="text"
-              id = "rut"
               className="form-control"
               value={rut}
               onChange={(e) => setRut(e.target.value)}
@@ -109,11 +106,10 @@ function RegistrarMedicos() {
           </div>
         </div>
         <div className="form-group">
-          <label htmlFor="fechaNac">Fecha de Nacimiento:</label>
+          <label>Fecha de Nacimiento:</label>
           <div className="input-container">
             <input
               type="date"
-              id = "fechaNac"
               className="form-control"
               value={fechaNacimiento}
               onChange={(e) => setFechaNacimiento(e.target.value)}
@@ -122,27 +118,25 @@ function RegistrarMedicos() {
           </div>
         </div>
         <div className="form-group">
-          <label htmlFor="tipoS">Tipo de Sangre:</label>
+          <label>Tipo de Sangre:</label>
           <select
             className="form-control"
-            id = "tipoS"
             value={tipoSangre}
             onChange={(e) => setTipoSangre(e.target.value)}
             required>
             <option value="">Selecciona un tipo de sangre</option>
             {tipoSangreOptions.map((tipo, index) => (
-              <option key={tipo} value={tipo}>
+              <option key={index} value={tipo}>
                 {tipo}
               </option>
             ))}
           </select>
         </div>
         <div className="form-group">
-          <label htmlFor="dir">Dirección:</label>
+          <label>Dirección:</label>
           <div className="input-container">
             <input
               type="text"
-              id="dir"
               className="form-control"
               value={direccion}
               onChange={(e) => setDireccion(e.target.value)}
@@ -151,11 +145,10 @@ function RegistrarMedicos() {
           </div>
         </div>
         <div className="form-group">
-          <label htmlFor="tel">Número de Teléfono:</label>
+          <label>Número de Teléfono:</label>
           <div className="input-container">
             <input
               type="tel"
-              id = "tel"
               className="form-control"
               value={telefono}
               onChange={(e) => setTelefono(e.target.value)}
@@ -164,10 +157,9 @@ function RegistrarMedicos() {
           </div>
         </div>
         <div className="form-group">
-          <label htmlFor="genero">Género:</label>
+          <label>Género:</label>
           <select
             className="form-control"
-            id = "genero"
             value={genero}
             onChange={(e) => setGenero(e.target.value)}
             required>
@@ -178,16 +170,15 @@ function RegistrarMedicos() {
           </select>
         </div>
         <div className="form-group">
-          <label htmlFor="cargo">Cargo:</label>
+          <label>Cargo:</label>
           <select
             className="form-control"
             value={cargo}
-            id = "cargo"
             onChange={handleCargoChange}
             required>
             <option value="">Selecciona un cargo</option>
             {cargosOptions.map((cargoOption, index) => (
-              <option key={cargoOption} value={cargoOption}>
+              <option key={index} value={cargoOption}>
                 {cargoOption}
               </option>
             ))}
@@ -195,11 +186,10 @@ function RegistrarMedicos() {
         </div>
         {cargo === "Médico" && (
           <div className="form-group">
-            <label htmlFor="especialidad">Especialidad:</label>
+            <label>Especialidad:</label>
             <div className="input-container">
               <input
                 type="text"
-                id = "especialidad"
                 className="form-control"
                 value={especialidad}
                 onChange={(e) => setEspecialidad(e.target.value)}
